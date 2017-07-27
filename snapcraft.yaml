@@ -1,0 +1,24 @@
+name: jsonnet
+version: 0.9.4
+summary: Jsonnet data templating language CLI
+description:
+ Jsonnet is a domain specific configuration language that helps you define JSON
+ data. Jsonnet lets you compute fragments of JSON within the structure,
+ bringing the same benefit to structured data that templating languages bring
+ to plain text.
+confinement: strict
+grade: stable
+
+apps:
+  jsonnet:
+    command: jsonnet
+    plugs: [network, home]
+
+parts:
+  jsonnet:
+    plugin: make
+    source: https://github.com/google/jsonnet.git
+    source-type: git
+    build-packages: [g++, build-essential]
+    artifacts:
+      - jsonnet
