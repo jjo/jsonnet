@@ -1,5 +1,6 @@
 name: jsonnet
-version: 'latest'
+version: latest
+version-script: git describe --tags|sed s,^v,,
 summary: Jsonnet data templating language CLI
 description:
  Jsonnet is a domain specific configuration language that helps you define JSON
