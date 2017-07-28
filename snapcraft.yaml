@@ -1,5 +1,5 @@
 name: jsonnet
-version: 0.9.4
+version: 'latest'
 summary: Jsonnet data templating language CLI
 description:
  Jsonnet is a domain specific configuration language that helps you define JSON
@@ -11,8 +11,8 @@ grade: stable
 
 apps:
   jsonnet:
-    command: jsonnet
-    plugs: [network, home]
+    command: bin/jsonnet
+    plugs: [home]
 
 parts:
   jsonnet:
@@ -22,3 +22,7 @@ parts:
     build-packages: [g++, build-essential]
     artifacts:
       - jsonnet
+      - examples
+    install: |
+      mkdir $SNAPCRAFT_PART_INSTALL/bin
+      mv $SNAPCRAFT_PART_INSTALL/jsonnet $SNAPCRAFT_PART_INSTALL/bin
